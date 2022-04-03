@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+.header:after {
+  z-index: -1;
+
+  content: "";
+  position: absolute;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.shadow {
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  filter: drop-shadow(0px 14px 20px rgba(0, 0, 0, 0.25));
+}
+
+.about::after {
+  position: absolute;
+  content: "";
+  background-color: #fdb400;
+  display: block;
+  height: 10px;
+  width: 2rem;
+  border-radius: 111px;
+}
+/*  clip-path: polygon(11% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+} */
+
+.under {
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  z-index: -1;
+}
+
+.over {
+  position: absolute;
+  left: 160px;
+  top: -90px;
+  z-index: 3;
+  /* background-color: #ffffff14; */
+}
+
+.aboutInfo-box {
+  @apply h-[120px] w-[160px] lg:h-[160px] lg:w-[200px] rounded-xl flex flex-col items-center justify-evenly px-5 relative;
+}
+
+.aboutInfo-heading {
+  @apply text-center text-3xl lg:text-5xl font-semibold text-white;
+}
+
+.aboutInfo-text {
+  @apply text-lg lg:text-xl text-center text-white;
+}
+.aboutInfo-dot {
+  @apply absolute  rounded-full dark:bg-idark bg-white h-3 w-7;
+}
+
+.active {
+  @apply shadow-2xl;
+}
+
+.serviceInfo-circle {
+  @apply ml-5 p-5 rounded-full h-12 w-12 bg-icream flex justify-center items-center;
+}
+
+.active-circle {
+  @apply bg-iyellow;
+}
+
+.active-text {
+  @apply text-icream;
+}
+
+.form-lable {
+  @apply block text-inavy text-sm font-bold;
+}
+
+.form-input {
+  @apply appearance-none border rounded w-full py-2 px-3 dark:bg-white text-gray-700 leading-tight;
+}
+
+.footer {
+  /* clip-path: polygon(94% 0, 100% 29%, 100% 100%, 0 100%, 0 0); */
+}
+
+.swiper {
+  @apply rounded-xl w-[350px] h-[180px] sm:w-[400px] sm:h-[250px] my-auto cursor-pointer;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.loading {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgb(26 108 97 / 56%);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.5s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
