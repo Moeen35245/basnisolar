@@ -1,13 +1,17 @@
-import { MicrophoneIcon, PhoneIcon, ShareIcon } from "@heroicons/react/solid";
+import { PhoneIcon } from "@heroicons/react/solid";
 import { CheckIcon, FilterIcon } from "@heroicons/react/outline";
 
 export function Button() {
   return (
     <li>
-      <a href="/#footer">
-        <button className="flex items-center px-3 py-2 dark:bg-ired bg-inavy text-white rounded-md">
-          Contact us
-          <MicrophoneIcon className="ml-1 h-5 w-5" />
+      <a target="_blank" href="https://wa.me/+918766155548">
+        <button className="relative">
+          <img
+            className="z-10 h-8 w-8"
+            src="/whatsapp.png"
+            alt="Social Media Icon"
+          />
+          <div className="animate-boom z-[8] h-10 w-10 absolute bg-green-300 opacity-50 rounded-full -top-1 -left-1"></div>
         </button>
       </a>
     </li>
@@ -16,9 +20,9 @@ export function Button() {
 
 export function ButtonNav() {
   return (
-    <button className="flex-1 space-x-4 mt-5 flex sm:hidden items-center justify-center px-5 py-2 dark:bg-ired bg-inavy text-white rounded-md">
+    <button className="flex-1 space-x-4 mt-5 flex sm:hidden items-center justify-center px-5 py-3 dark:bg-ired bg-inavy text-white rounded-md">
       <PhoneIcon className="ml-1 h-5 w-5" />
-      <a href="tel:+96170961709">+96170961709</a>
+      <a href="tel:+96170961709">+91637961709</a>
     </button>
   );
 }

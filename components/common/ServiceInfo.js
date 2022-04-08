@@ -109,15 +109,15 @@ function ServiceInfo() {
             className="object-contain rounded-xl"
           />
         </div>
-        <p className="dark:text-white text-inavy mobile:text-center text-sm mt-2">
+        <p className="text-center dark:text-white text-inavy text-sm mt-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
           repellat magnam aut optio!
         </p>
       </div>
 
       <div
-        className={`flex-1 mobile:flex-[40%]  pr-5 ${
-          active2 ? "flex" : "hidden"
+        className={`flex-1 transition-all duration-150 mobile:flex-[40%]  pr-5 ${
+          active2 ? "flex opacity-100" : "hidden opacity-0"
         }  flex-col justify-center items-center md:mr-0 md:my-auto`}
       >
         <h4 className="dark:text-white text-inavy mb-4 md:mb-0 block md:hidden text-center md:text-left text-3xl font-semibold ml-10">

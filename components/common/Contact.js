@@ -12,6 +12,7 @@ function Contact() {
   const address = useRef();
   const message = useRef();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -21,6 +22,12 @@ function Contact() {
     const eAddress = address.current.value;
     const eMessage = message.current.value;
 
+    if (eName === "" || eAddress === "" || ePhone === "") {
+      setLoading(false);
+      setError(true);
+      return;
+    }
+    setError(false);
     fetch("/api/submitForm", {
       method: "POST",
       body: JSON.stringify({
@@ -65,7 +72,7 @@ function Contact() {
         <form className="mt-4 grid grid-cols-10">
           <div className="mb-4 col-span-10 sm:col-start-1 sm:col-end-5">
             <label className="form-lable" htmlFor="Name">
-              Name
+              Name <strong className="text-red-500">*</strong>
             </label>
             <input
               className="form-input focus:outline-none focus:shadow-outline"
@@ -91,7 +98,7 @@ function Contact() {
 
           <div className="mb-4 col-span-10 sm:col-start-1 sm:col-end-5">
             <label className="form-lable" htmlFor="Number">
-              Number
+              Number <strong className="text-red-500">*</strong>
             </label>
             <input
               className="form-input focus:outline-none focus:shadow-outline"
@@ -104,7 +111,7 @@ function Contact() {
 
           <div className="mb-4 col-span-10 sm:col-start-6 sm:col-end-10">
             <label className="form-lable" htmlFor="Number">
-              Address
+              Address <strong className="text-red-500">*</strong>
             </label>
             <input
               className="form-input focus:outline-none focus:shadow-outline"
@@ -125,6 +132,11 @@ function Contact() {
               ref={message}
             />
           </div>
+          {error && (
+            <p className="mb-2 col-span-9 font-semibold text-xs text-center text-red-500">
+              please fill require fields
+            </p>
+          )}
           <div className="mb-4 col-span-10">
             <button
               disabled={loading}

@@ -69,7 +69,7 @@ function Footer() {
             </a>
           </li>
           <li className="cursor-pointer">
-            <a href="https://www.whatsapp.com/" target="_blank">
+            <a href="https://wa.me/+918766155548" target="_blank">
               <img
                 className="h-6 w-6"
                 src="/whatsapp.png"

@@ -6,7 +6,7 @@ function About() {
   return (
     <div
       id="about-us"
-      className="items-center dark:idark  lg:mt-10 flex lg:flex-row flex-col-reverse max-w-[1198px] gap-5  "
+      className="items-center dark:idark mt-16 lg:mt-10 flex lg:flex-row flex-col-reverse max-w-[1198px] gap-5  "
     >
       <div className="flex-1 relative my-auto ">
         <div className="hidden lg:block w-[400px] shadow rounded-xl overflow-hidden lg:absolute lg:left-[100px] lg:top-[0px]">
