@@ -1,15 +1,14 @@
 import { ButtonFilter } from "../reusable/Button";
 import { catagories, componies } from "../../lib/helper";
+import { motion } from "framer-motion";
 
-function Filter({ state, filterFadeOutHandler, filterData }) {
+function Filter({ filterFadeOutHandler, filterData }) {
   let id1 = 0;
   let id2 = 0;
 
   return (
-    <div
-      className={`${
-        state ? "hidden" : "block"
-      } p-5 z-50 absolute top-10 left-[50%] -translate-x-1/2 w-[320px]  mobile:w-[400px] bg-white dark:bg-idark filter rounded-xl shadow-lg border border-iyellow dark:border-ired`}
+    <motion.div
+      className={` p-5 z-50 absolute top-10 left-[50%] -translate-x-1/2 w-[320px]  mobile:w-[400px] bg-white dark:bg-idark filter rounded-xl shadow-lg border border-iyellow dark:border-ired`}
     >
       <div className="flex flex-wrap justify-evenly mb-4">
         <div className="space-y-2 p-2 ">
@@ -42,7 +41,7 @@ function Filter({ state, filterFadeOutHandler, filterData }) {
           text="All"
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

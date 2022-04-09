@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import { EffectCube, Pagination } from "swiper";
+import { motion } from "framer-motion";
 
 import Image from "next/image";
 import { Button, ButtonNav } from "../reusable/Button";
@@ -22,21 +23,77 @@ function Header() {
         <div className="h-60 w-60 lg:h-72 lg:w-72 rounded-full absolute bottom-20 left-28 bg-pink-200 dark:bg-ired mix-blend-multiply filter blur-xl dark:opacity-50 opacity-70 animate-blob animation-delay-4000"></div>
 
         <div className="w-[80%] z-20">
-          <h1 className="z-50 text-5xl lg:text-7xl font-bold">Switch To </h1>
-          <h1 className="text-5xl lg:text-7xl font-bold">
+          <motion.h1
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              ease: "easeOut",
+              duration: 0.5,
+            }}
+            className="z-50 text-5xl lg:text-7xl font-bold"
+          >
+            Switch To{" "}
+          </motion.h1>
+          <motion.h1
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              delay: 0.6,
+              type: "spring",
+              stiffness: 100,
+              ease: "easeOut",
+              duration: 0.5,
+            }}
+            className="text-5xl lg:text-7xl font-bold"
+          >
             <span className="text-iyellow">Solar</span> Energy
-          </h1>
-          <p className="text-justify mt-5">
+          </motion.h1>
+          <motion.p
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              delay: 1.1,
+              type: "spring",
+              stiffness: 100,
+              ease: "easeOut",
+              duration: 0.5,
+            }}
+            className="text-justify mt-5"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
             tempore rerum excepturi dolorem! Illo nesciunt repudiandae veritatis
             numquam placeat ipsum! Quos, accusamus ipsa!
-          </p>
-          <div className="flex">
+          </motion.p>
+          <motion.div
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{
+              delay: 1.6,
+              type: "spring",
+              stiffness: 100,
+              ease: "easeOut",
+              duration: 0.5,
+            }}
+            className="flex"
+          >
             <ButtonNav />
-          </div>
+          </motion.div>
         </div>
       </div>
-      <div className="flex flex-1 ">
+      <motion.div
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{
+          delay: 1.6,
+          type: "spring",
+          stiffness: 150,
+          ease: "easeOut",
+          duration: 0.5,
+        }}
+        className="flex flex-1 "
+      >
         {/* <div className="my-auto shadow mx-auto rounded-xl  w-[85%] lg:h-[290px] lg:w-[70%] overflow-hidden ">
           <Image
             quality={1}
@@ -73,7 +130,7 @@ function Header() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </div>
   );
 }

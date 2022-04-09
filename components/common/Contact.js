@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { ButtonForm } from "../reusable/Button";
 import { CheckIcon } from "@heroicons/react/solid";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 function Contact() {
   const name = useRef();
@@ -133,9 +134,14 @@ function Contact() {
             />
           </div>
           {error && (
-            <p className="mb-2 col-span-9 font-semibold text-xs text-center text-red-500">
+            <motion.p
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "tween", stiffness: 600 }}
+              className="mb-2 col-span-9 font-semibold text-xs text-center text-red-500"
+            >
               please fill require fields
-            </p>
+            </motion.p>
           )}
           <div className="mb-4 col-span-10">
             <button

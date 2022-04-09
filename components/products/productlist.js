@@ -24,11 +24,12 @@ function Productlist({ data, filterData }) {
 
   return (
     <div className="relative">
-      <Filter
-        filterData={filterData}
-        filterFadeOutHandler={filterFadeOutHandler}
-        state={isHide}
-      />
+      {!isHide && (
+        <Filter
+          filterData={filterData}
+          filterFadeOutHandler={filterFadeOutHandler}
+        />
+      )}
       <div
         onClick={filterFadeOutHandler}
         className={` ${

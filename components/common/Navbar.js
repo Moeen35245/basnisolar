@@ -30,16 +30,16 @@ function Navbar() {
         </div>
       </div>
       <div className="mx-auto flex flex-1 max-w-[1198px] ">
-        <div className="relative w-44">
-          <Link href="/">
+        <Link href="/">
+          <div className="relative w-44">
             <Image
               alt="This basni solar logo"
               src={logo}
               objectFit="contain"
               className="h-full object-contain"
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
         <ul
           className={`z-[50] transition-all md:transition-none duration-300 shadow-xl delay-300 md:shadow-none fixed h-screen w-[85%] md:h-full md:w-fit dark:bg-idark bg-white md:bg-transparent top-0 right-0 md:static flex-col  justify-evenly  md:translate-x-0 md:flex-row flex ml-auto space-x-5 items-center  ${
             isOpen ? "translate-x-0" : "translate-x-full"
