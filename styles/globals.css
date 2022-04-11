@@ -119,6 +119,37 @@
   animation: spin 0.5s linear infinite;
   -webkit-animation: spin 0.5s linear infinite;
 }
+.slider-container {
+  position: relative;
+}
+
+.slide {
+  border-radius: 5px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.next,
+.prev {
+  top: calc(50% - 20px);
+
+  user-select: none;
+
+  @apply absolute bg-indigo-100 rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer font-semibold text-lg z-10 dark:bg-ired;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+  transform: scale(-1);
+}
 
 @keyframes spin {
   to {

@@ -10,6 +10,7 @@
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.2",
     "@heroicons/react": "^1.0.6",
+    "@popmotion/popcorn": "^0.4.4",
     "bcryptjs": "^2.4.3",
     "framer-motion": "^6.2.9",
     "mongodb": "^4.4.1",

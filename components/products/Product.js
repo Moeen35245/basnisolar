@@ -66,13 +66,8 @@ function Product({
       <div className="z-20 px-2 text-white absolute top-3 left-0 h-8 w-36 dark:bg-ired bg-iyellow rounded-tr-full  rounded-br-full">
         <p className="font-semibold text-lg">{compony}</p>
       </div>
-      <div className="relative h-[60%]">
-        <Image
-          alt="This bansi solar product"
-          src={imgLink}
-          objectFit="contain"
-          layout="fill"
-        />
+      <div className="relative h-[60%] w-full">
+        <img alt={description} src={imgLink} className="h-full w-full" />
       </div>
       <div className="mt-5">
         <p className="text-sm font-light mb-2">{warranty}</p>

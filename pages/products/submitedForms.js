@@ -1,7 +1,19 @@
 import { useSession, getSession } from "next-auth/react";
 import { connectToDatabase } from "../../lib/dbconnection";
+import { useRouter } from "next/router";
+import { TrashIcon } from "@heroicons/react/outline";
 function submitedForms({ data }) {
   const { data: session, status } = useSession();
+  const router = useRouter();
+  const deleteHandler = async (id) => {
+    const result = await fetch("/api/deleteForm", {
+      method: "DELETE",
+      body: JSON.stringify({ id }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (result.status === 201) router.replace("/products/submitedForms");
+  };
 
   if (status === "authenticated")
     return (
@@ -38,6 +50,12 @@ function submitedForms({ data }) {
                   <strong>Adress:</strong>
                 </p>
                 <p>{" " + item.address}</p>
+              </div>
+              <div
+                className="mx-auto flex justify-center items-center cursor-pointer p-2 rounded-full h-10 w-10 bg-indigo-100 dark:bg-idarkBg"
+                onClick={() => deleteHandler(item.id)}
+              >
+                <TrashIcon className="h-5 w-5" />
               </div>
             </div>
           ))}
