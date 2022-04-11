@@ -1,6 +1,12 @@
+import { motion } from "framer-motion";
 function ContactSlog() {
   return (
-    <div className="px-5 md:px-0 mt-20 max-w-[850px] flex flex-col md:flex-row mx-auto gap-10">
+    <motion.div
+      initial={{ scale: 0.5, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="px-5 md:px-0 mt-20 max-w-[850px] flex flex-col md:flex-row mx-auto gap-10"
+    >
       <div className="flex-[60%]">
         <h4 className="mb-2 text-2xl font-bold text-iyellow">
           Save The Environment
@@ -16,7 +22,7 @@ function ContactSlog() {
           socity!
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

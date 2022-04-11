@@ -51,7 +51,18 @@ function Contact() {
   console.log(loading);
   return (
     <div className="flex mx-auto mt-10 max-w-[900px]">
-      <div className="flex-[30%] relative  w-[100%] hidden lg:block  ml-10 shadow rounded-tl-xl rounded-bl-xl overflow-hidden ">
+      <motion.div
+        initial={{ x: "-100vw" }}
+        whileInView={{ x: 0 }}
+        transition={{
+          delay: 1.6,
+          type: "spring",
+          stiffness: 100,
+          ease: "easeOut",
+          duration: 0.5,
+        }}
+        className="flex-[30%] relative  w-[100%] hidden lg:block  ml-10 shadow rounded-tl-xl rounded-bl-xl overflow-hidden "
+      >
         <Image
           alt="This is about basni solar"
           quality={20}
@@ -59,9 +70,15 @@ function Contact() {
           objectFit="cover"
           layout="fill"
         />
-      </div>
+      </motion.div>
 
-      <div className="mx-auto w-[90%] md:max-w-[400px] lg:w-auto lg:pl-16 dark:text-inavy px-5  border-2 border-gray-50  shadow-2xl lg:shadow rounded-tl-xl rounded-bl-xl rounded-tr-xl rounded-br-xl lg:rounded-tl-none lg:rounded-bl-none bg-white">
+      <motion.div
+        initial={{ scale: 0.3, opacity: 0.3 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 100, duration: 1 }}
+        className="mx-auto w-[90%] md:max-w-[400px] lg:w-auto lg:pl-16 dark:text-inavy px-5  border-2 border-gray-50  shadow-2xl lg:shadow rounded-tl-xl rounded-bl-xl rounded-tr-xl rounded-br-xl lg:rounded-tl-none lg:rounded-bl-none bg-white"
+      >
         <div className="flex justify-center mt-4">
           <img className="h-10 w-10 " src="/icon.png" alt="solar panel icon" />
         </div>
@@ -160,7 +177,7 @@ function Contact() {
             number to anyone
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

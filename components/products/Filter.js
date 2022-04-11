@@ -46,3 +46,15 @@ function Filter({ filterFadeOutHandler, filterData }) {
 }
 
 export default Filter;
+
+/*
+initial={{ scale: 0.3, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        ease: "easeOut",
+        duration: 0.2,
+      }}
+      style={{ originX: 0 }}
+*/

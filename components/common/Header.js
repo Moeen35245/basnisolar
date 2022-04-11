@@ -1,16 +1,16 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
 // import "swiper/css/effect-creative";
 // import "swiper/css/autoplay";
 // import "swiper/css/effect-cards";
 // import { Autoplay, EffectCreative } from "swiper";
-import "swiper/css/effect-cube";
-import "swiper/css/pagination";
-import { EffectCube, Pagination } from "swiper";
+// import "swiper/css/effect-cube";
+// import "swiper/css/pagination";
+// import { EffectCube, Pagination } from "swiper";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
-import { Button, ButtonNav } from "../reusable/Button";
+import { ButtonNav } from "../reusable/Button";
 
 function Header() {
   const images = ["/aboutimg1.jpg", "/aboutimg2.jpg", "/contactimg.jpg"];
@@ -94,7 +94,7 @@ function Header() {
         }}
         className="flex flex-1 "
       >
-        {/* <div className="my-auto shadow mx-auto rounded-xl  w-[85%] lg:h-[290px] lg:w-[70%] overflow-hidden ">
+        <div className="my-auto shadow mx-auto rounded-xl h-[200px] w-[85%] lg:h-[290px] lg:w-[70%] overflow-hidden ">
           <Image
             quality={1}
             layout="fill"
@@ -102,8 +102,8 @@ function Header() {
             objectFit="cover"
             className="object-cover"
           />
-        </div> */}
-        <Swiper
+        </div>
+        {/* <Swiper
           effect={"cube"}
           grabCursor={true}
           cubeEffect={{
@@ -129,7 +129,7 @@ function Header() {
               />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
       </motion.div>
     </div>
   );
