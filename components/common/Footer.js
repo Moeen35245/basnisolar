@@ -1,3 +1,4 @@
+import { PhoneIcon } from "@heroicons/react/outline";
 function Footer() {
   return (
     <footer
@@ -10,8 +11,22 @@ function Footer() {
       <div className="text-white mb-4 md:mb-0">
         <h5 className=" font-bold md:mb-4">Contact</h5>
         <div className="space-y-1 font-light text-justify text-sm">
-          <p>+918755547691</p>
-          <p>+916354908726</p>
+          <p className="flex items-center space-x-2">
+            <span>+918755547691</span>
+            <li className="p-2 bg-idarkBg rounded-full cursor-pointer list-none">
+              <a href="tel:+918755547691">
+                <PhoneIcon className="h-5 w-5" />
+              </a>
+            </li>
+          </p>
+          <p className="flex items-center space-x-2">
+            <span>+916354908726</span>
+            <li className="p-2 bg-idarkBg rounded-full cursor-pointer list-none">
+              <a href="tel:+916354908726">
+                <PhoneIcon className="h-5 w-5" />
+              </a>
+            </li>
+          </p>
         </div>
       </div>
 
