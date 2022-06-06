@@ -1,4 +1,5 @@
-import { connectToDatabase } from "../../lib/dbconnection";
+import connectToDatabase from "../../lib/dbconnection";
+import Product from "../../models/Product";
 import { getSession } from "next-auth/react";
 import { ObjectID } from "bson";
 
@@ -23,10 +24,9 @@ export default async function (req, res) {
       catagoryValue,
     } = data;
     const currId = new ObjectID(id);
-    const client = await connectToDatabase();
-    const db = client.db();
-    const productCollection = db.collection("products");
-    const result = await productCollection.updateOne(
+    await connectToDatabase();
+
+    const result = await Product.updateOne(
       { _id: currId },
       {
         $set: {
@@ -40,7 +40,7 @@ export default async function (req, res) {
         },
       }
     );
-    client.close();
+
     res.status(201).json({ message: "Item updated" });
   } else res.status(403).json({ message: "Please use a appropriate method" });
 }

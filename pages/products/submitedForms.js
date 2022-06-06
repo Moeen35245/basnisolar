@@ -1,5 +1,6 @@
 import { useSession, getSession } from "next-auth/react";
-import { connectToDatabase } from "../../lib/dbconnection";
+import connectToDatabase from "../../lib/dbconnection";
+import Form from "../../models/Form";
 import { useRouter } from "next/router";
 import { TrashIcon } from "@heroicons/react/outline";
 function submitedForms({ data }) {
@@ -80,10 +81,9 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  const client = await connectToDatabase();
-  const db = client.db();
-  const userCollection = db.collection("form");
-  const data = await userCollection.find({}).toArray();
+  await connectToDatabase();
+
+  const data = await Form.find({});
 
   return {
     props: {

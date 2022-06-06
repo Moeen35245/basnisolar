@@ -1,7 +1,9 @@
 import Productlist from "../../components/products/productlist";
 import Head from "next/head";
-import { connectToDatabase } from "../../lib/dbconnection";
+import connectToDatabase from "../../lib/dbconnection";
 import { useState, useEffect } from "react";
+import Product from "../../models/Product";
+
 function products({ data }) {
   const [currData, setCurrData] = useState(data);
 
@@ -34,10 +36,12 @@ function products({ data }) {
 }
 
 export async function getServerSideProps() {
-  const client = await connectToDatabase();
-  const db = client.db();
-  const productsCollection = db.collection("products");
-  const data = await productsCollection.find({}).toArray();
+  // const client = await connectToDatabase();
+  // const db = client.db();
+  // const productsCollection = db.collection("products");
+  await connectToDatabase();
+
+  const data = await Product.find({});
 
   return {
     props: {

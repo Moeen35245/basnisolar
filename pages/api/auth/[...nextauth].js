@@ -1,7 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifypassword } from "../../../lib/bcrypt";
-import { connectToDatabase } from "../../../lib/dbconnection";
+import connectToDatabase from "../../../lib/dbconnection";
+import Admin from "../../../models/Admin";
 
 export default NextAuth({
   session: {
@@ -10,15 +11,13 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        const client = await connectToDatabase();
-        const db = client.db();
-        const usersCollection = db.collection("admin");
-        const user = await usersCollection.findOne({
+        await connectToDatabase();
+
+        const user = await Admin.findOne({
           email: credentials.email,
         });
 
         if (!user) {
-          client.close();
           throw new Error("User not found");
         }
 
@@ -27,11 +26,9 @@ export default NextAuth({
           user.password
         );
         if (!isValid) {
-          client.close();
           throw new Error("Invalid password");
         }
 
-        client.close();
         return user;
       },
     }),

@@ -1,6 +1,6 @@
-import { connectToDatabase } from "../../lib/dbconnection";
+import connectToDatabase from "../../lib/dbconnection";
 import { getSession } from "next-auth/react";
-
+import Product from "../../models/Product";
 export default async function (req, res) {
   const session = await getSession({ req });
 
@@ -20,11 +20,9 @@ export default async function (req, res) {
       eCompony,
       eCatagory,
     } = data;
+    await connectToDatabase();
 
-    const client = await connectToDatabase();
-    const db = client.db();
-    const userCollection = db.collection("products");
-    const result = await userCollection.insertOne({
+    const addProduct = new Product({
       price: ePrice,
       DiscPrice: eDiscPrice,
       warranty: eWarranty,
@@ -33,7 +31,8 @@ export default async function (req, res) {
       compony: eCompony,
       catagory: eCatagory,
     });
-    client.close();
+    const result = await addProduct.save();
+
     res.status(201).json({ message: "Item added" });
   } else res.status(403).json({ message: "Please use a appropriate method" });
 }

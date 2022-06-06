@@ -1,4 +1,5 @@
-import { connectToDatabase } from "../../lib/dbconnection";
+import connectToDatabase from "../../lib/dbconnection";
+import Form from "../../models/Form";
 import { getSession } from "next-auth/react";
 import { ObjectID } from "bson";
 
@@ -15,13 +16,12 @@ export default async function (req, res) {
     const { id } = data;
     const currId = new ObjectID(id);
 
-    const client = await connectToDatabase();
-    const db = client.db();
-    const userCollection = db.collection("form");
-    const result = await userCollection.deleteOne({
+    await connectToDatabase();
+
+    const result = await Form.deleteOne({
       _id: currId,
     });
-    client.close();
+
     res.status(201).json({ message: "Item added" });
   } else res.status(403).json({ message: "Please use a appropriate method" });
 }

@@ -1,10 +1,11 @@
 import { ObjectID } from "bson";
-import { connectToDatabase } from "../../lib/dbconnection";
+import connectToDatabase from "../../lib/dbconnection";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { PencilAltIcon } from "@heroicons/react/solid";
 import { catagories, componies } from "../../lib/helper";
 import { getSession } from "next-auth/react";
+import Product from "../../models/Product";
 // import AddsItem from "../../components/products/AddsItem";
 
 function productedit({ data }) {
@@ -185,10 +186,9 @@ export async function getServerSideProps(context) {
 
   const id = context.params.productedit;
   const currId = new ObjectID(id);
-  const client = await connectToDatabase();
-  const db = client.db();
-  const productsCollection = db.collection("products");
-  const data = await productsCollection.findOne({ _id: currId });
+  await connectToDatabase();
+
+  const data = await Product.findOne({ _id: currId });
   return {
     props: {
       data: {
